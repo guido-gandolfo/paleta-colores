@@ -1,12 +1,19 @@
-const color = document.querySelector("#color")
-const salida = document.querySelector("#salida");
 
+color.value = storage;
+
+
+
+//localStorage.setItem("colorValue", "#ffffff")
 //evento
-color.addEventListener("input", () => {
-    const valor = color.value;
-    console.log(valor);
+console.log(storage);
 
-    // coloca el codigo del color que se va seleccionando
-    salida.innerHTML = valor;
-    salida.style.background = valor;
-})
+
+
+//Realizo la llamada a la funcion para que quede grabado el ultimo valor seleccionado
+setColor();
+
+//Eventos
+color.addEventListener("input", setColor);
+color.addEventListener("change", () => {
+    saveColor(color.value)
+});
